@@ -37,8 +37,8 @@ resources:
               if [ "$disable1Nic" == "True" ]; then
                 /usr/bin/setdb provision.1nicautoconfig disable
               fi
-              /usr/bin/passwd admin __admin_password__ >/dev/null 2>&1
-              /usr/bin/passwd root __root_password__ >/dev/null 2>&1
+              echo "admin:__admin_password__" | chpasswd >/dev/null 2>&1
+              echo "root:__root_password__" | chpasswd >/dev/null 2>&1
 
               mkdir -m 0755 -p /config/cloud/openstack
               mkdir -m 0755 -p /mnt/creds
